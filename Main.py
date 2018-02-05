@@ -25,7 +25,16 @@ class LinkedList(object):
         pass
 
     def get(self, index):
-        
+        if self.first is None:
+            return None
+        tmp = self.first
+        i = 0
+        while i < index:
+            tmp = tmp.next
+            i += 1
+            if tmp.next is None:
+                return None
+        return tmp.value
         pass
 
     def remove(self, value):
