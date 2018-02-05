@@ -25,7 +25,7 @@ class LinkedList(object):
         pass
 
     def get(self, index):
-
+        # hej
         pass
 
     def remove(self, value):
