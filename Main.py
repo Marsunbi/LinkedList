@@ -1,7 +1,6 @@
 #!/bin/python
 
 class LinkedList(object):
-    # Inner class
     class Node(object):
         prev = None
         next = None
@@ -9,10 +8,8 @@ class LinkedList(object):
         def __init__(self, value):
             self.value = value
 
-    # LinkedList fields
     first = None
 
-    # LinkedList methods
     def add(self, value):
         if self.first is None:
             node = self.Node(value)
@@ -21,8 +18,9 @@ class LinkedList(object):
             tmp = self.first
             while tmp.next is not None:
                 tmp = tmp.next
-            tmp.next = self.node
-        pass
+            node = self.Node(value)
+            tmp.next = node
+            node.prev = tmp
 
     def get(self, index):
         if self.first is None:
@@ -35,19 +33,44 @@ class LinkedList(object):
             if tmp.next is None:
                 return None
         return tmp.value
-        pass
 
     def remove(self, value):
-
-        pass
+        if self.first is None:
+            return None
+        tmp = self.first
+        while tmp is not None:
+            if tmp.value is value:
+                next = tmp.next
+                prev = tmp.prev
+                if next is not None:
+                    next.prev = prev
+                if prev is not None:
+                    prev.next = next
+        tmp = tmp.next
+        return None
 
     def remove_at(self, index):
-        # TODO: implement this method
-        pass
+        if self.first is None:
+            return None
+        tmp = self.first
+        i = 0
+        while i < index:
+            tmp = tmp.next
+            i += 1
+            if tmp.next is not None:
+                next = tmp.next
+                prev = tmp.prev
+                next.prev = prev
+                prev.next = next
+        return tmp.value
 
     def insert(self, value, index):
-        # TODO: implement this method
-        pass
+        if self.first is None:
+            return None
+        tmp = self.first
+        i = 0
+        while i < index:
+            pass
 
     def contains(self, value):
         # TODO: implement this method
@@ -61,12 +84,8 @@ class LinkedList(object):
         # TODO: implement this method
         pass
 
-
     def __str__(self):
-        pass
-
+        return
 
 if __name__ == "__main__":
     ll = LinkedList()
-    print(ll)
-    # TODO: write "tests" as you implement different methods in your data structure
