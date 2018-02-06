@@ -85,8 +85,17 @@ class LinkedList(object):
         pass
 
     def __str__(self):
-        return
+        tmp = self.first
+        output = "["
+        while tmp is not None:
+            output += str(tmp.value) + ","
+            tmp = tmp.next
+        return output + "]"
+
 
 if __name__ == "__main__":
     ll = LinkedList()
     ll.add(2)
+    ll.add(3)
+    print(ll)
+    print(ll.get(2))
