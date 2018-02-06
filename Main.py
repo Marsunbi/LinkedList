@@ -89,3 +89,4 @@ class LinkedList(object):
 
 if __name__ == "__main__":
     ll = LinkedList()
+    ll.add(2)
